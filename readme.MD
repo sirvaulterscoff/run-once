@@ -1,6 +1,6 @@
 # Run-once
 
-Run-once is a library for implementing idempotent fail-safe services, built on top of (project reactor)[https://projectreactor.io].
+Run-once is a library for implementing idempotent fail-safe services, built on top of [project reactor](https://projectreactor.io).
 Idempotency is crucial when working in unreliable environment. Kafka can actually deliver same
 message multiple times, your client can try to PUT same entities through your REST endpoints several time and so on.
 
@@ -40,7 +40,7 @@ as something that can fail any time. Rly.
 Run-once is the library to help you track your requests (both incoming and outgoing), their state and resume failed
 requests in case of subsequent request. In order to make your system idempotent, you need to:
 
-- agree with all your clients that all requests should have unique identifiers of some sort (i suggest to use (ULID)[https://github.com/ulid/spec]). 
+- agree with all your clients that all requests should have unique identifiers of some sort (i suggest to use [ULID](https://github.com/ulid/spec)). 
 Any subsequent retried request should use the same key as original request. You can use some header (in case of REST), some part (field)
   of data (like customer order number), key in case of Kafka or whatever.
 - implement your idempotent logic inside  run-once  call 
@@ -72,7 +72,7 @@ service
 
 ## What run-once will do for me
 
-1. run-once uses shared state to sync different instances of your application. (R2dbc)[https://r2dbc.io] implementation provided,
+1. run-once uses shared state to sync different instances of your application. [R2dbc](https://r2dbc.io) implementation provided,
 other can be written. Shared state guarantees only one instance is serving request with this id
 2. If a request has not run previously run-once will call your handler code and save the response to shared state
 3. If a request had run previously run-once depending on previous result wlll:
