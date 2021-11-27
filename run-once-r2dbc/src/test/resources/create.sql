@@ -1,0 +1,1 @@
+create table RUN_ONCE_RECORD ( id varchar(256) primary key ,started_at TIMESTAMP WITH TIME ZONE,finished_at TIMESTAMP WITH TIME ZONE,status_id int,request clob,response clob)
