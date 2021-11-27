@@ -79,5 +79,6 @@ other can be written. Shared state guarantees only one instance is serving reque
  - call post-handler and pass previous result from shared state if request previously completed normally
  - call handler with isRetry flag true if previous run completed with RetryableException (or any custom exception you consider retryable)
  - return OperationFailedException if previous run completed with non-RetryableException
+4. If a request is still running and not exceeded its ttl yet OperationAlreadyStartedException will be returned
 
 That's all, happy coding.
